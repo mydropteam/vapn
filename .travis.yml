@@ -2,16 +2,17 @@ language: bash
 services: docker
 
 env:
-  - VERSION=VARNISH VARIANT=VARNISH/4
-  - VERSION=APACHE VARIANT=APACHE/2.4
-  - VERSION=PHP-FPM VARIANT=PHP-FPM7.2_PROD
-  - VERSION=PHP-FPM VARIANT=PHP-FPM7.2_DEV
-  - VERSION=NODE VARIANT=NODE/10.15
+  - VERSION=VARNISH VARIANT=4
+  - VERSION=APACHE VARIANT=2.4
+  - VERSION=PHP-FPM VARIANT=7.2_PROD
+  - VERSION=PHP-FPM VARIANT=7.2_DEV
+  - VERSION=NODE VARIANT=10.15
 
 
 before_script:
   - env | sort
   - cd "${VERSION}"
+  - cd "${VARIANT}"
 
 script:
   - travis_retry docker build -t test_image .
