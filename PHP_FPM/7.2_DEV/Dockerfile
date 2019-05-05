@@ -3,7 +3,7 @@ FROM dropteam/vapn:PHP-FPM-7.2
 
 # Installation of needed extensions.
 RUN apt-get update && apt-get install --fix-missing -y \
-  htop
+  htop \
   tree \
   vim \
   nano
