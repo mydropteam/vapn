@@ -19,5 +19,3 @@ RUN touch /usr/local/etc/php/conf.d/xdebug.ini &&\
   echo xdebug.remote_port=9000 >> /usr/local/etc/php/conf.d/xdebug.ini &&\
   echo xdebug.remote_log=/tmp/php5-xdebug.log >> /usr/local/etc/php/conf.d/xdebug.ini
 
-# Expose port 9000
-EXPOSE 9000
