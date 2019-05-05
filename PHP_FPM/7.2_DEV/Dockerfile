@@ -1,6 +1,13 @@
 # Pull base image.
 FROM dropteam/vapn:PHP-FPM-7.2
 
+# Installation of needed extensions.
+RUN apt-get update && apt-get install --fix-missing -y \
+  htop
+  tree \
+  vim \
+  nano
+
 # Install xdebug. We need at least 2.4 version to have PHP 7 support.
 RUN cd /tmp/ && wget http://xdebug.org/files/xdebug-2.6.0RC2.tgz && tar -xvzf xdebug-2.6.0RC2.tgz && cd xdebug-2.6.0RC2/ && phpize && ./configure --enable-xdebug --with-php-config=/usr/local/bin/php-config && make && make install
 RUN cd /tmp/xdebug-2.6.0RC2 && cp modules/xdebug.so /usr/local/lib/php/extensions/no-debug-non-zts-20170718/
