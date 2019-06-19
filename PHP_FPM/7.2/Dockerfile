@@ -1,8 +1,11 @@
 # Pull base image.
 FROM php:7.2-fpm
 
+# Update apt registry
+RUN apt-get update || apt-get update
+
 # Installation of needed extensions.
-RUN apt-get update && apt-get install --fix-missing -y \
+RUN apt-get install --fix-missing -y \
   apt-transport-https \
   apt-utils \
   imagemagick \
