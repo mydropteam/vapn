@@ -1,8 +1,11 @@
 # Pull base image.
 FROM dropteam/vapn:PHP-FPM-7.2
 
+# Update apt registry
+RUN apt-get update || apt-get update
+
 # Installation of needed extensions.
-RUN apt-get update && apt-get install --fix-missing -y \
+RUN apt-get install --fix-missing -y \
   htop \
   tree \
   vim \
